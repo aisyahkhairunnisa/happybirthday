@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: white;
+      text-shadow: 2px 2px 8px #00000055;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    p {
+      font-size: 24px;
+      color: #fff;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Balon */
+    .balloon {
+      width: 60px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -150px;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
+    }
+
+    .string {
+      width: 2px;
+      height: 60px;
+      background: white;
+      margin: auto;
+      position: relative;
+      top: -10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Aweellcuu! 🎉</h1>
+  <p>Semoga hal-hal baik selalu datang untuk awel, semoga dimudahkan segala urusannya, wish you all the best!💖</p>
+
+  <!-- Musik ulang tahun -->
+  <audio autoplay loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthdaySong.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Buat balon warna-warni
+    const colors = ["#ff4d6d", "#ffafcc", "#cdb4db", "#bde0fe", "#a2d2ff", "#ffd6a5"];
+    for (let i = 0; i < 15; i++) {
+      let balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      let string = document.createElement("div");
+      string.className = "string";
+      balloon.appendChild(string);
+
+      document.body.appendChild(balloon);
+    }
+  </script>
+</body>
+</html>
